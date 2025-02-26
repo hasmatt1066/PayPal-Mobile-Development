@@ -18,7 +18,7 @@ Below is the schedule of activities for the week:
 | 1:00 PM | 🟦 [State Management](./lessons/02-state-management/README.md) | 🟦 [Navigation and Routing](./lessons/03-navigation-routing/README.md) | 🟦 [UI Components](./lessons/04-ui-components/README.md) | 🟦 [Platform Integration](./lessons/05-platform-integration/README.md) | 🟦 Course Review |
 | 1:30 PM | 🟦 (continued) | 🟦 (continued) | 🟦 (continued) | 🟦 (continued) | 🟦 (continued) |
 | 2:00 PM | 🟦 (continued) | 🟦 (continued) | 🟦 (continued) | 🟦 (continued) | 🟦 (continued) |
-| 2:30 PM | 🟩 [State Management Lab](./lessons/02-state-management/lab/README.md) | 🟩 [Navigation Lab](./lessons/03-navigation-routing/lab/README.md) | 🟩 [UI Components Lab](./lessons/04-ui-components/lab/README.md) | 🟩 [Platform Lab](./lessons/05-platform-integration/lab/README.md) | 🟩 Final Project |
+| 2:30 PM | 🟩 [State Management Lab](./lessons/02-state-management/lab/README.md) | 🟩 [Navigation Lab](./lessons/03-navigation-routing/lab/README.md) | 🟩 [UI Components Lab](./lessons/04-ui-components/lab/README.md) | 🟩 [Platform Lab](./lessons/05-platform-integration/lab/README.md) | 🟩 My PayPal App Completion |
 | 3:00 PM | 🟩 (continued) | 🟩 (continued) | 🟩 (continued) | 🟩 (continued) | 🟩 (continued) |
 | 3:30 PM | 🟩 (continued) | 🟩 (continued) | 🟩 (continued) | 🟩 (continued) | 🟩 (continued) |
 | 4:00 PM | Daily Wrap-up | Daily Wrap-up | Daily Wrap-up | Daily Wrap-up | Course Conclusion |
@@ -115,12 +115,14 @@ Each day includes hands-on labs that reinforce lesson concepts:
 - **Progressive Complexity**: Labs build upon each other, creating a cohesive application
 - **Real-World Scenarios**: Labs simulate actual PayPal development challenges
 
-By the final day, students will have built a complete financial application with:
+By the final day, students will have built a complete PayPal Dashboard application with:
 - Robust domain models and business logic
 - Sophisticated state management
 - Secure navigation and deep linking
 - Professional UI components
 - Platform-specific security features
+
+The My PayPal App serves as both the ongoing project throughout the course and the capstone project. Students build it incrementally, with each day's lab adding new components and functionality. The final day's platform integration work completes the application, serving as the culminating achievement of the course.
 
 ### Why This Approach Matters for PayPal
 
