@@ -16,6 +16,112 @@
 - Understanding of OOP principles
 
 
+## Lesson Roadmap
+
+### 1. Domain Models (30 min)
+- Transaction model
+- Value objects
+- Validation rules
+- Business logic
+
+### 2. Repository Patterns (30 min)
+- Interface design
+- Error handling
+- Data access patterns
+- Repository contracts
+
+### 3. Clean Architecture (30 min)
+- Layer separation
+- Dependency rules
+- Interface segregation
+- Testing patterns
+
+
+## Conceptual Framework
+
+Before diving into the technical implementation, let's understand the key concepts and their relationships in building a solid foundation for mobile applications.
+
+### Why This Foundation Matters
+
+Starting with a strong domain foundation is crucial for building robust financial applications:
+
+- **Data Integrity**: Financial applications handle sensitive data where accuracy is non-negotiable
+- **Security**: A well-designed domain layer helps enforce security rules at the data level
+- **Maintainability**: Clean architecture makes it easier to update and extend your application
+- **Testability**: Proper separation of concerns enables thorough testing of business logic
+
+### Visual Representation
+
+The following diagram illustrates how the key concepts in this lesson work together:
+
+```mermaid
+flowchart TD
+    subgraph "Domain Layer"
+        DM[Domain Models] --> VO[Value Objects]
+        DM --> E[Entities]
+        DM --> BL[Business Logic]
+    end
+    
+    subgraph "Repository Layer"
+        R[Repository Interfaces] --> DM
+    end
+    
+    subgraph "Application Layer"
+        UC[Use Cases] --> R
+    end
+    
+    subgraph "Infrastructure Layer"
+        RI[Repository Implementations] --> R
+        DS[Data Sources] --> RI
+    end
+    
+    subgraph "Presentation Layer"
+        UI[UI Components] --> UC
+    end
+    
+    classDef domainLayer fill:#f9f,stroke:#333,stroke-width:2px
+    classDef repositoryLayer fill:#bbf,stroke:#333,stroke-width:2px
+    classDef applicationLayer fill:#bfb,stroke:#333,stroke-width:2px
+    classDef infrastructureLayer fill:#fbb,stroke:#333,stroke-width:2px
+    classDef presentationLayer fill:#bff,stroke:#333,stroke-width:2px
+    
+    class DM,VO,E,BL domainLayer
+    class R repositoryLayer
+    class UC applicationLayer
+    class RI,DS infrastructureLayer
+    class UI presentationLayer
+```
+
+### Key Concepts Explained
+
+1. **Domain Models**: The core business objects that represent your application's data and behavior
+   - **Value Objects**: Immutable objects defined by their attributes (like Money, TransactionDate)
+   - **Entities**: Objects with identity that can change over time (like Transaction, Account)
+   - **Business Logic**: Rules that govern how your data behaves and changes
+
+2. **Repository Pattern**: Interfaces that define how to access and store domain objects
+   - Acts as a collection of domain objects
+   - Hides data access implementation details
+   - Enables testability through mocking
+
+3. **Clean Architecture**: A design approach that separates concerns into layers
+   - Domain layer contains business rules and is independent of other layers
+   - Repository interfaces belong to the domain layer
+   - Repository implementations belong to the infrastructure layer
+   - Dependencies point inward toward the domain layer
+
+### Real-World Application
+
+In financial applications like PayPal:
+
+- **Transaction Processing**: Domain models ensure that transactions maintain integrity
+- **Money Handling**: Value objects prevent common financial calculation errors
+- **Data Validation**: Business rules in the domain layer prevent invalid data
+- **Testing**: Clean architecture enables thorough testing of business logic
+
+By building on these foundations, you'll create applications that are more secure, maintainable, and adaptable to changing requirements.
+
+
 ## Development Environment Setup
 **Time Required:** 15 minutes
 
@@ -55,27 +161,6 @@ While traditionally Flutter courses might start with UI components, we're starti
 
 > 💡 **Key Concept:**  
 > Domain models define your business logic and data structures. They form the foundation of your application and should be independent of UI or platform-specific code.
-
-
-## Lesson Roadmap
-
-### 1. Domain Models (30 min)
-- Transaction model
-- Value objects
-- Validation rules
-- Business logic
-
-### 2. Repository Patterns (30 min)
-- Interface design
-- Error handling
-- Data access patterns
-- Repository contracts
-
-### 3. Clean Architecture (30 min)
-- Layer separation
-- Dependency rules
-- Interface segregation
-- Testing patterns
 
 
 ## Domain Layer Implementation

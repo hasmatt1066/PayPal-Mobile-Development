@@ -17,6 +17,147 @@
 - Understanding of Flutter widgets
 
 
+## Lesson Roadmap
+
+### 1. Transaction List Screen (30 min)
+- List view implementation
+- Pull-to-refresh
+- Search and filters
+- Loading states
+
+### 2. Transaction Details Screen (30 min)
+- Detailed view layout
+- Timeline display
+- Status updates
+- Error handling
+
+### 3. Reusable Components (30 min)
+- Loading indicators
+- Error displays
+- Filter widgets
+- Status badges
+
+
+## Conceptual Framework
+
+Before diving into implementation details, let's understand the key concepts of UI components in financial applications.
+
+### Why UI Component Design Matters
+
+Well-designed UI components are crucial for financial applications:
+
+- **Trust**: Professional UI components build user confidence in financial transactions
+- **Usability**: Intuitive components reduce user errors in critical financial operations
+- **Accessibility**: Properly designed components ensure all users can access financial services
+- **Consistency**: Unified component design creates a cohesive user experience
+
+### Visual Representation
+
+The following diagram illustrates the component hierarchy and state integration in a financial application:
+
+```mermaid
+classDiagram
+    class Screen {
+        +build()
+        +state
+    }
+    
+    class StatefulWidget {
+        +createState()
+        +build()
+    }
+    
+    class StatelessWidget {
+        +build()
+    }
+    
+    class TransactionListScreen {
+        -transactionState
+        -filterState
+        -_buildList()
+        -_handleRefresh()
+        -_showFilters()
+    }
+    
+    class TransactionCard {
+        -transaction
+        -onTap()
+        -_formatAmount()
+    }
+    
+    class LoadingState {
+        +showIndicator()
+    }
+    
+    class ErrorState {
+        -error
+        -onRetry
+        +showError()
+    }
+    
+    class EmptyState {
+        -message
+    }
+    
+    class FilterWidget {
+        -filters
+        -onFilterChanged()
+        -onClear()
+    }
+    
+    StatefulWidget <|-- Screen
+    StatefulWidget <|-- TransactionListScreen
+    StatelessWidget <|-- TransactionCard
+    StatelessWidget <|-- LoadingState
+    StatelessWidget <|-- ErrorState
+    StatelessWidget <|-- EmptyState
+    StatelessWidget <|-- FilterWidget
+    
+    TransactionListScreen o-- TransactionCard : contains
+    TransactionListScreen o-- LoadingState : shows when loading
+    TransactionListScreen o-- ErrorState : shows on error
+    TransactionListScreen o-- EmptyState : shows when empty
+    TransactionListScreen o-- FilterWidget : contains
+```
+
+### Key Concepts Explained
+
+1. **Component Composition**: Building complex UIs from simple components
+   - Reusable building blocks improve maintainability
+   - Composition over inheritance promotes flexibility
+   - Clear component boundaries improve testability
+   - Consistent patterns enhance developer productivity
+
+2. **State Integration**: Connecting UI components to application state
+   - Components react to state changes
+   - State access is controlled and predictable
+   - UI reflects the current application state
+   - Error and loading states are handled consistently
+
+3. **Responsive Design**: Adapting to different screen sizes and orientations
+   - Fluid layouts adjust to available space
+   - Adaptive components change behavior based on context
+   - Consistent experience across devices
+   - Accessibility considerations for all users
+
+4. **Error Handling**: Displaying errors in a user-friendly way
+   - Inline error states avoid disrupting user flow
+   - Retry mechanisms help users recover from errors
+   - Consistent error patterns build user confidence
+   - Contextual error messages guide users to solutions
+
+### Real-World Application
+
+In financial applications like PayPal:
+
+- **Transaction Cards**: Display financial data clearly with proper formatting
+- **Loading States**: Non-blocking indicators maintain user context during operations
+- **Error Handling**: Inline error states with recovery options
+- **Accessibility**: All components meet accessibility standards for inclusive design
+
+By implementing well-designed UI components, you'll create applications that are more usable, trustworthy, and accessible to all users.
+
+
 ## Development Environment Setup
 **Time Required:** 15 minutes
 
@@ -71,27 +212,6 @@ Now that we have our domain models, state management, and navigation in place, w
 
 > 💡 **Key Concept:**  
 > UI components should be presentation-focused, delegating business logic to the domain layer and state management to dedicated state containers.
-
-
-## Lesson Roadmap
-
-### 1. Transaction List Screen (30 min)
-- List view implementation
-- Pull-to-refresh
-- Search and filters
-- Loading states
-
-### 2. Transaction Details Screen (30 min)
-- Detailed view layout
-- Timeline display
-- Status updates
-- Error handling
-
-### 3. Reusable Components (30 min)
-- Loading indicators
-- Error displays
-- Filter widgets
-- Status badges
 
 
 ## Screen Implementation
